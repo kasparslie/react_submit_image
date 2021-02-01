@@ -27,8 +27,17 @@ console.log(image)
 const postData = (e) => {
       const fd = new FormData ();
       fd.append('ProductImage', image, image.name)
+      fd.append('ProductName', data.ProductName)
+      fd.append('ProductTypeId', data.ProductTypeId)
+      fd.append('ProductPrice_unit', data.ProductPrice_unit)
+      fd.append('ProductPrice_min', data.ProductPrice_min)
+      fd.append('ProductPrice_hour', data.ProductPrice_hour)
+      fd.append('ProductDescription', data.ProductDescription)
+      fd.append('ProductHasCalendar', data.ProductHasCalendar)
+      fd.append('Available', data.Available)
+      fd.append('Quantity', data.Quantity)
       e.preventDefault();
-      axios.post(`http://localhost:3001/Admin/Products/Add`, fd, data)
+      axios.post(`http://localhost:3001/Admin/Products/Add`, fd)
       .then(res => console.log(res))
       .catch((err) => console.log(err))
     }
